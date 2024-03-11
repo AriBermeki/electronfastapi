@@ -1,0 +1,51 @@
+appId: com.electron.app
+productName: electron-app
+directories:
+  buildResources: public
+
+
+files:
+  - "./build/**/*"
+  - "./dist/**/*"
+  - "./node_modules/**/*"
+  - "./public/**/*"
+  - "*.js"
+
+extraFiles: 
+  - "./py_dist"
+  
+asarUnpack:
+  - resources/**
+win:
+  executableName: electron-app
+  icon: "./public/logo512.png"
+nsis:
+  artifactName: ${name}-${version}-setup.${ext}
+  shortcutName: ${productName}
+  uninstallDisplayName: ${productName}
+  createDesktopShortcut: always
+mac:
+  icon: "./public/logo512.png"
+  entitlementsInherit: public/entitlements.mac.plist
+  extendInfo:
+    - NSCameraUsageDescription: Application requests access to the device's camera.
+    - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
+    - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
+    - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  notarize: false
+dmg:
+  artifactName: ${name}-${version}.${ext}
+linux:
+  icon: "./public/logo512.png"
+  target:
+    - AppImage
+    - snap
+    - deb
+  maintainer: electronjs.org
+  category: Utility
+appImage:
+  artifactName: ${name}-${version}.${ext}
+npmRebuild: false
+publish:
+  provider: generic
+  url: https://example.com/auto-updates

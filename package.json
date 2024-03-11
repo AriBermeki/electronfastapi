@@ -1,0 +1,65 @@
+{
+  "name": "malek_electron",
+  "version": "0.1.0",
+  "homepage": "./",
+  "main": "./public/electron.js",
+  "private": true,
+  "dependencies": {
+    "@ant-design/icons": "^5.3.1",
+    "@electron-toolkit/preload": "^3.0.0",
+    "@electron-toolkit/utils": "^3.0.0",
+    "@testing-library/jest-dom": "^5.17.0",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "antd": "^5.15.2",
+    "node-multiprocess": "^0.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "react-start": "react-scripts start",
+    "start": "concurrently -k \"cross-env BROWSER=none npm run react-start\" \"wait-on http://127.0.0.1:3000 && electronmon .\"",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "build:python": "pyinstaller -y .\\py\\main.spec",
+    "postinstall": "electron-builder install-app-deps",
+    "build:unpack": "npm run build && electron-builder --dir",
+    "build:win": "npm run build:python && npm run build && electron-builder --win",
+    "build:mac": "npm run build:python && npm run build && electron-builder --mac",
+    "build:linux": "npm run build:python && npm run build && electron-builder --linux"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "cross-env": "^7.0.3",
+    "electron": "^29.1.1",
+    "electron-builder": "^24.13.3",
+    "electron-devtools-installer": "^3.2.0",
+    "electron-download": "^4.1.1",
+    "electron-packager": "^17.1.2",
+    "electron-settings": "^4.0.2",
+    "electron-store": "^8.2.0",
+    "electronmon": "^2.0.2",
+    "wait-on": "^7.2.0"
+  }
+}
