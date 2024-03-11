@@ -1,13 +1,13 @@
 ## 🔨 Usage
 
 ```bash
-git clone https://github.com/AriBermeki/electronfastapi.git
-python -m venv venv  
-. venv/Scripts/Activate.ps1 
-pip install fastapi uvicorn websockets python-socketio  python-multipart anyio sqlmodel typer pyinstaller 
-cd electronfastapi
-npm i
-npm start
+1-  git clone https://github.com/AriBermeki/electronfastapi.git
+2- python -m venv venv  
+3- . venv/Scripts/Activate.ps1 
+4- pip install fastapi uvicorn websockets python-socketio  python-multipart anyio sqlmodel typer pyinstaller 
+5- cd electronfastapi
+6- npm i
+7- npm start
 
 ```
 
